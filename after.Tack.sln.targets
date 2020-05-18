@@ -1,0 +1,11 @@
+<Project>
+
+  <Target Name="RunToolInDocker">
+    <Message Importance="High" Text="Running Tack in .NET 6 Docker Image" />
+    <Exec Command="docker run -e &quot;DOTNET_CLI_HOME=/workdir&quot; -e &quot;DOTNET_CLI_TELEMETRY_OPTOUT=1&quot; --rm --workdir /workdir -v &quot;$(MSBuildThisFileDirectory):/workdir&quot; --entrypoint dotnet mcr.microsoft.com/dotnet/sdk:6.0.408-focal-amd64 ./src/Tack/bin/$(Configuration)/net6.0/publish/Tack.dll --configuration $(Configuration) --solution ./Tack.sln --outfile test-list.log" />
+    
+    <Message Importance="High" Text="Running Tack in .NET 5 Docker Image" />
+    <Exec Command="docker run -e &quot;DOTNET_CLI_HOME=/workdir&quot; -e &quot;DOTNET_CLI_TELEMETRY_OPTOUT=1&quot; --rm --workdir /workdir -v &quot;$(MSBuildThisFileDirectory):/workdir&quot; --entrypoint dotnet mcr.microsoft.com/dotnet/sdk:6.0.408-focal-amd64 ./src/Tack/bin/$(Configuration)/net5.0/publish/Tack.dll --configuration $(Configuration) --solution ./Tack.sln --outfile test-list.log" />    
+  </Target>
+
+</Project>

@@ -1,0 +1,19 @@
+﻿<Project>
+  <PropertyGroup>
+    <Deterministic>true</Deterministic>
+    <Features>pdb-path-determinism</Features>
+    <PathMap>$(MSBuildThisFileDirectory)=E:\code\Tack</PathMap>
+    <PackageOutputPath>$(MSBuildThisFileDirectory)artefacts</PackageOutputPath>
+    <DestinationNuGetRepo>gr-dev-extractor-nuget</DestinationNuGetRepo>
+    <ApplicationIcon>$(MSBuildThisFileDirectory)Pin.ico</ApplicationIcon>
+    <LangVersion>10.0</LangVersion>
+    <PackageIcon>Pin.png</PackageIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)Pin.png" Pack="true" PackagePath="" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- Use GitVersioning for nuget packages -->
+    <PackageReference Include="Nerdbank.GitVersioning" Version="3.5.107" PrivateAssets="All"/>
+  </ItemGroup>
+</Project>
