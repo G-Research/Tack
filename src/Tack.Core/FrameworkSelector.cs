@@ -88,7 +88,7 @@ namespace Tack.Core
         List<TargetFramework> _targetFrameworks;
         public AppFrameworkSelector(IEnumerable<string> targetFrameworks)
         {
-            _targetFrameworks = targetFrameworks.Select(t=>new TargetFramework(t)).ToList();
+            _targetFrameworks = targetFrameworks.Select(t => new TargetFramework(t)).ToList();
         }
 
         public IEnumerable<string> GetTargetFrameworks(Project testProject)

@@ -96,6 +96,7 @@ namespace Tack.Core
             }
         }
 
+#pragma warning disable format
         public int FrameworkId
         {
             get
@@ -108,6 +109,7 @@ namespace Tack.Core
                     // TargetPlatformVersion can be added to the end if required BUT doing so will require ProjectTargetId to be adjusted to avoid overflow
             }
         }
+#pragma warning restore format
 
         public TargetFramework(string framework)
         {
