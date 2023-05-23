@@ -6,7 +6,7 @@ namespace Tack.Core.Tests
     {
         static BaseFixture()
         {
-            var instance = MSBuildLocator.RegisterDefaults();
+            MSBuildLocator.RegisterDefaults();
         }
     }
 }

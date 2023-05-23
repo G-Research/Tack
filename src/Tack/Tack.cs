@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Bulldog;
-using Microsoft.Build.Construction;
-using Microsoft.Build.Evaluation;
+using Microsoft.Build.Locator;
 using Microsoft.Extensions.DependencyInjection;
 using Serilog;
 using Tack.Core;
@@ -31,6 +27,8 @@ namespace Tack
 
         protected override Task<int> Run(Options options)
         {
+            MSBuildLocator.RegisterDefaults();
+
             if (!File.Exists(options.Solution))
             {
                 Log.Error("Unable to find specified solution file {Solution}", options.Solution);
@@ -66,7 +64,5 @@ namespace Tack
 
             return errorsFound ? Task.FromResult(1) : Task.FromResult(0);
         }
-
-
     }
 }

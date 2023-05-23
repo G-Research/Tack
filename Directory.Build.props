@@ -4,9 +4,9 @@
     <Features>pdb-path-determinism</Features>
     <PathMap>$(MSBuildThisFileDirectory)=E:\code\Tack</PathMap>
     <PackageOutputPath>$(MSBuildThisFileDirectory)artefacts</PackageOutputPath>
-    <DestinationNuGetRepo>gr-dev-extractor-nuget</DestinationNuGetRepo>
     <ApplicationIcon>$(MSBuildThisFileDirectory)Pin.ico</ApplicationIcon>
     <LangVersion>10.0</LangVersion>
+    <CheckEolTargetFramework>false</CheckEolTargetFramework>
     <PackageIcon>Pin.png</PackageIcon>
   </PropertyGroup>
   <ItemGroup>

@@ -97,7 +97,7 @@ namespace Tack.Core.Tests
     <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include=""Bulldog"" Version=""0.3.10"" />
+    <PackageReference Include=""Bulldog"" Version=""0.4.2"" />
     <PackageReference Include=""Microsoft.Build"" Version=""16.8.0"" />
     <PackageReference Include=""Microsoft.Build.Framework"" Version=""16.8.0"" />
     <PackageReference Include=""Microsoft.Build.Utilities.Core"" Version=""16.8.0"" />
