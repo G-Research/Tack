@@ -4,7 +4,7 @@ using FakeItEasy;
 
 namespace Tack.Core.Tests
 {
-    public class AssemblyLoaderTests
+    public class AssemblyLoaderTests : BaseFixture
     {
         [Fact]
         public void ExcludeCategoriesCorrectlyExcludeProjects()

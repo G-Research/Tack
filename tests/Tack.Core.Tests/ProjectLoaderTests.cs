@@ -8,7 +8,7 @@ using Xunit;
 
 namespace Tack.Core.Tests
 {
-    public class ProjectLoaderTests
+    public class ProjectLoaderTests: BaseFixture
     {
         [Fact]
         public void TestCanIdentifyTestProjects()

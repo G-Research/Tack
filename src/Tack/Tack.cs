@@ -16,7 +16,7 @@ namespace Tack
     public enum FileMode
     {
         Overwrite,
-        Append
+        Append,
     }
 
     public class Tack : ToolBase<Options>

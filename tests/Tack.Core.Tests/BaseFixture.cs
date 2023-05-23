@@ -1,0 +1,12 @@
+using Microsoft.Build.Locator;
+
+namespace Tack.Core.Tests
+{
+    public abstract class BaseFixture
+    {
+        static BaseFixture()
+        {
+            var instance = MSBuildLocator.RegisterDefaults();
+        }
+    }
+}
