@@ -7,14 +7,13 @@ using Xunit;
 
 namespace Tack.Core.Tests
 {
-    public class FrameworkSelectorTests: BaseFixture
+    public class FrameworkSelectorTests : BaseFixture
     {
-        
         [Fact]
         public void CanCorrectIdentifyMaximumFrameworkInProject()
         {
             var testProjectPath = CreateTestProject("netcoreapp3.1;net5.0;net6.0");
-            
+
             var options = A.Fake<IProjectLoaderOptions>();
             A.CallTo(() => options.Configuration).Returns("Debug");
             ProjectLoader projectLoader = new ProjectLoader(NullLogger<ProjectLoader>.Instance, options);
@@ -24,6 +23,8 @@ namespace Tack.Core.Tests
             var result = maxFrameworkSelector.GetTargetFrameworks(project).ToList();
             result.Count.Should().Be(1);
             result[0].Should().Be("net6.0");
+
+            File.Delete(testProjectPath);
         }
 
         [Fact]
@@ -42,6 +43,8 @@ namespace Tack.Core.Tests
             result.Count.Should().Be(2);
             result[0].Should().Be("net5.0");
             result[1].Should().Be("net6.0");
+
+            File.Delete(testProjectPath);
         }
 
         [Fact]
@@ -59,6 +62,8 @@ namespace Tack.Core.Tests
             var result = frameworkSelector.GetTargetFrameworks(project).ToList();
             result.Count.Should().Be(1);
             result[0].Should().Be("netcoreapp3.1");
+
+            File.Delete(testProjectPath);
         }
 
         [Fact]
@@ -74,6 +79,8 @@ namespace Tack.Core.Tests
             var frameworkSelector = new MaxFrameworkSelector(ignoreWindows: true);
             var result = frameworkSelector.GetTargetFrameworks(project).ToList();
             result.Should().BeEmpty();
+
+            File.Delete(testProjectPath);
         }
 
         private static string CreateTestProject(string frameworks)
@@ -100,7 +107,7 @@ namespace Tack.Core.Tests
     <ProjectReference Include=""..\Tack.Core\Tack.Core.csproj"" />
   </ItemGroup>
 </Project>";
-            
+
             var tmpPath = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName(), "TestProject.csproj");
             Directory.CreateDirectory(Path.GetDirectoryName(tmpPath));
             File.WriteAllText(tmpPath, projectContent);
