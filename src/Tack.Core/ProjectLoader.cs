@@ -31,7 +31,7 @@ namespace Tack.Core
             {
                 {"Configuration", loaderOptions.Configuration},
             };
-            
+
             _evaluationContext = EvaluationContext.Create(EvaluationContext.SharingPolicy.Shared);
             _projectCollection = new ProjectCollection(_globalProperties);
 
@@ -64,7 +64,7 @@ namespace Tack.Core
             project = Project.FromFile(normalisedPath, projectOptions);
 
             _projects.Add(project.FullPath, project);
-            
+
             return true;
         }
     }
