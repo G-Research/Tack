@@ -8,6 +8,7 @@
     <LangVersion>10.0</LangVersion>
     <Authors>G-Research</Authors>
     <Copyright>Copyright 2020-$([System.DateTime]::Now.ToString('yyyy')) G-Research Limited</Copyright>
+    <PackageIcon>Pin.png</PackageIcon>
   </PropertyGroup>
   <ItemGroup>
     <!-- Use GitVersioning for nuget packages -->

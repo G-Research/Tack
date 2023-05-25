@@ -10,7 +10,6 @@
     <PackageReleaseNotes>https://github.com/G-Research/Tack/blob/main/CHANGELOG.md</PackageReleaseNotes>
     <PackageProjectUrl>https://github.com/G-Research/Tack</PackageProjectUrl>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
-    <PackageIcon>Pin.png</PackageIcon>
   </PropertyGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)Pin.png" Pack="true" PackagePath="" />
