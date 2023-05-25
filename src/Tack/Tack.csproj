@@ -12,9 +12,6 @@
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="$(MSBuildThisFileDirectory)Pin.png" Pack="true" PackagePath="" />
-  </ItemGroup>
-  <ItemGroup>
     <PackageReference Include="Bulldog" Version="0.4.2" />
     <PackageReference Include="Microsoft.Build.Locator" Version="1.5.5"/>
     <PackageReference Include="Microsoft.Build" Version="16.8.0" ExcludeAssets="runtime"/>
