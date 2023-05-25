@@ -45,8 +45,8 @@ namespace Tack
                 return Task.FromResult(2);
             }
 
-            string outputPathDir = Path.GetDirectoryName(options.OutputFile);
-            if (!Directory.Exists(outputPathDir))
+            var outputPathDir = Path.GetDirectoryName(options.OutputFile);
+            if (!string.IsNullOrWhiteSpace(outputPathDir) && !Directory.Exists(outputPathDir))
             {
                 Log.Information("Creating {outputPathDir} directory for output file.", outputPathDir);
                 Directory.CreateDirectory(outputPathDir);
