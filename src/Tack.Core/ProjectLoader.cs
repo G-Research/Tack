@@ -7,7 +7,6 @@ using Microsoft.Build.Definition;
 using Microsoft.Build.Evaluation;
 using Microsoft.Build.Evaluation.Context;
 using Microsoft.Extensions.Logging;
-using NuGet.Versioning;
 
 namespace Tack.Core
 {

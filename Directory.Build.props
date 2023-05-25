@@ -6,12 +6,9 @@
     <PackageOutputPath>$(MSBuildThisFileDirectory)artefacts</PackageOutputPath>
     <ApplicationIcon>$(MSBuildThisFileDirectory)Pin.ico</ApplicationIcon>
     <LangVersion>10.0</LangVersion>
-    <CheckEolTargetFramework>false</CheckEolTargetFramework>
-    <PackageIcon>Pin.png</PackageIcon>
+    <Authors>G-Research</Authors>
+    <Copyright>Copyright 2020-$([System.DateTime]::Now.ToString('yyyy')) G-Research Limited</Copyright>
   </PropertyGroup>
-  <ItemGroup>
-    <None Include="$(MSBuildThisFileDirectory)Pin.png" Pack="true" PackagePath="" />
-  </ItemGroup>
   <ItemGroup>
     <!-- Use GitVersioning for nuget packages -->
     <PackageReference Include="Nerdbank.GitVersioning" Version="3.5.107" PrivateAssets="All"/>
