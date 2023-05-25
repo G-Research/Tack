@@ -10,29 +10,36 @@ env:
 
 jobs:
   check-format:
-      if: github.event_name == 'push' || github.event.pull_request.head.repo.id != github.event.pull_request.base.repo.id
-      runs-on: ubuntu-latest
-      steps:
-        - name: Checkout
-          uses: actions/checkout@v3
-        - name: Restore tool
-          run: dotnet tool restore
-        - name: Check format
-          run: dotnet tool run dotnet-format  -- --check
+    if: github.event_name == 'push' || github.event.pull_request.head.repo.id != github.event.pull_request.base.repo.id
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup .NET SDK v7.0.x
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 7.0.x
+      - name: Restore tool
+        run: dotnet tool restore
+      - name: Check format
+        run: dotnet tool run dotnet-format  -- --check
   
   TackTests:
     if: github.event_name == 'push' || github.event.pull_request.head.repo.id != github.event.pull_request.base.repo.id
     strategy:
       matrix:
-        framework: [net6.0, net7.0]
         os: [ubuntu-latest, windows-latest]
       fail-fast: false
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Setup .NET SDK v7.0.x
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 7.0.x
       - name: Test
-        run: dotnet test --configuration=Release --framework=${{ matrix.framework }}
+        run: dotnet test --configuration=Release
 
   Tack:
     if: github.event_name == 'push' || github.event.pull_request.head.repo.id != github.event.pull_request.base.repo.id
@@ -42,6 +49,10 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
+      - name: Setup .NET SDK v7.0.x
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 7.0.x
       - name: Pack
         run: dotnet pack --configuration=Release
       - name: Upload NuGet package artifacts
