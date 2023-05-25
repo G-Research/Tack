@@ -30,7 +30,6 @@ jobs:
     if: github.event_name == 'push' || github.event.pull_request.head.repo.id != github.event.pull_request.base.repo.id
     strategy:
       matrix:
-        framework: [net6.0, net7.0]
         os: [ubuntu-latest, windows-latest]
       fail-fast: false
     runs-on: ${{ matrix.os }}
@@ -44,7 +43,7 @@ jobs:
         with:
           dotnet-version: 7.0.x
       - name: Test
-        run: dotnet test --configuration=Release --framework=${{ matrix.framework }}
+        run: dotnet test --configuration=Release
 
   Tack:
     if: github.event_name == 'push' || github.event.pull_request.head.repo.id != github.event.pull_request.base.repo.id
