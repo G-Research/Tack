@@ -8,14 +8,15 @@ using Xunit;
 
 namespace Tack.Core.Tests
 {
-    public class ProjectLoaderTests
+    public class ProjectLoaderTests : BaseFixture
     {
         [Fact]
         public void TestCanIdentifyTestProjects()
         {
-            var options = new TestOptions() { 
-                Configuration = "Release", 
-                SkipExistenceCheck = true, 
+            var options = new TestOptions
+            {
+                Configuration = "Release",
+                SkipExistenceCheck = true,
                 Solution = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "test-cases", "test-cases.sln")
             };
 
