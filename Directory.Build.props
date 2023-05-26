@@ -6,7 +6,8 @@
     <PackageOutputPath>$(MSBuildThisFileDirectory)artefacts</PackageOutputPath>
     <ApplicationIcon>$(MSBuildThisFileDirectory)Pin.ico</ApplicationIcon>
     <LangVersion>10.0</LangVersion>
-    <CheckEolTargetFramework>false</CheckEolTargetFramework>
+    <Authors>G-Research</Authors>
+    <Copyright>Copyright 2020-$([System.DateTime]::Now.ToString('yyyy')) G-Research Limited</Copyright>
     <PackageIcon>Pin.png</PackageIcon>
   </PropertyGroup>
   <ItemGroup>

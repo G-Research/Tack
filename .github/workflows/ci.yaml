@@ -10,26 +10,30 @@ env:
 
 jobs:
   check-format:
-      if: github.event_name == 'push' || github.event.pull_request.head.repo.id != github.event.pull_request.base.repo.id
-      runs-on: ubuntu-latest
-      steps:
-        - name: Checkout
-          uses: actions/checkout@v2
-        - name: Setup .NET SDK v7.0.x
-          uses: actions/setup-dotnet@v3
-          with:
-            dotnet-version: 7.0.x
-        - name: Restore tool
-          run: dotnet tool restore
-        - name: Check format
-          run: dotnet tool run dotnet-format  -- --check
-  
-  TackTests:
     if: github.event_name == 'push' || github.event.pull_request.head.repo.id != github.event.pull_request.base.repo.id
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Setup .NET SDK v7.0.x
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 7.0.x
+      - name: Restore tool
+        run: dotnet tool restore
+      - name: Check format
+        run: dotnet tool run dotnet-format  -- --check
+  
+  TackTests:
+    if: github.event_name == 'push' || github.event.pull_request.head.repo.id != github.event.pull_request.base.repo.id
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+      fail-fast: false
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
       - name: Setup .NET SDK v6.0.x
@@ -41,18 +45,18 @@ jobs:
 
   Tack:
     if: github.event_name == 'push' || github.event.pull_request.head.repo.id != github.event.pull_request.base.repo.id
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
       - name: Setup .NET SDK v6.0.x
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: 6.0.x
-      - name: Build
-        run: dotnet build --configuration=Release
+      - name: Pack
+        run: dotnet pack --configuration=Release
       - name: Upload NuGet package artifacts
         uses: actions/upload-artifact@v3
         with:
