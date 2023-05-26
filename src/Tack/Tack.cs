@@ -30,7 +30,7 @@ namespace Tack
         {
             var instance = MSBuildLocator.RegisterDefaults();
             Log.Information($"Runtime version:{Environment.Version}, MSBuildPath:{instance.MSBuildPath}");
-            
+
             if (!File.Exists(options.Solution))
             {
                 Log.Error("Unable to find specified solution file {Solution}", options.Solution);
