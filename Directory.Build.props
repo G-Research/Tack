@@ -9,9 +9,11 @@
     <Authors>G-Research</Authors>
     <Copyright>Copyright 2020-$([System.DateTime]::Now.ToString('yyyy')) G-Research Limited</Copyright>
     <PackageIcon>Pin.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)Pin.png" Pack="true" PackagePath="" />
+    <None Include="$(MSBuildThisFileDirectory)README.md" Pack="true" PackagePath=""/>
   </ItemGroup>
   <ItemGroup>
     <!-- Use GitVersioning for nuget packages -->
