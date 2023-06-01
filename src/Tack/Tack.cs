@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using Bulldog;
@@ -27,7 +28,8 @@ namespace Tack
 
         protected override Task<int> Run(Options options)
         {
-            MSBuildLocator.RegisterDefaults();
+            var instance = MSBuildLocator.RegisterDefaults();
+            Log.Information($"Runtime version:{Environment.Version}, MSBuildPath:{instance.MSBuildPath}");
 
             if (!File.Exists(options.Solution))
             {

@@ -2,13 +2,13 @@
 
 <img src="./pin.png" width="300px" />
 
-A DotNet tool that can be used to get filter projects and associated output assemblies from solutions.
+A DotNet tool that can be used to filter projects and associated output assemblies from solutions.
 
 Used in conjunction to with other tools this can enable running of tests from local checkout using the standard CI build tools.
 
 ### Prerequisites
 
-* DotnetCore 3.1 Sdk
+* .NET 7 Sdk
 
 ### Build the solution.
 
