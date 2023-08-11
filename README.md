@@ -2,16 +2,15 @@
 
 ![Tack Logo](./pin.png)
 
-Tack is an efficient C++ library built for the computation of gradients and Hessians through algorithmic differentiation. It is tailored for numerical optimization, machine learning, and a range of applications requiring mathematical differentiation.
+Tack is a DotNet tool that can be used to filter projects and associated output assemblies from solutions and an efficient C++ library built for the computation of gradients and Hessians through algorithmic differentiation. It is tailored for numerical optimization, machine learning, and can be used in a range of applications. Used in conjunction with other tools, this can enable running of tests from local checkout using the standard CI build tools.
 
 ## Features
 - **Flexibility**: Define mathematical functions with ease and compute their derivatives.
 - **Efficiency**: Optimized for large-scale optimization problems.
-- **Ease of use**: Intuitive interface with clear documentation.
 - **Compatibility**: Integrates seamlessly with other tools and frameworks like TensorFlow and PyTorch.
 
 ## Applications
-Tack can be employed for:
+Tack can be employed in many applications, including:
 - Neural network training using backpropagation.
 - Parameter optimization in support vector machines.
 - Gradient and Hessian calculation for optimization in physics, engineering, and finance.
