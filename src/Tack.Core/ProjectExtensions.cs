@@ -1,6 +1,6 @@
-﻿using Microsoft.Build.Evaluation;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using Microsoft.Build.Evaluation;
 
 namespace Tack.Core
 {

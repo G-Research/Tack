@@ -1,11 +1,11 @@
-﻿using Microsoft.Build.Evaluation;
+﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
-using Serilog;
-using System;
 using Microsoft.Build.Construction;
-using System.IO;
+using Microsoft.Build.Evaluation;
+using Serilog;
 
 namespace Tack.Core
 {
