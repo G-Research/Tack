@@ -1,8 +1,8 @@
-﻿using FakeItEasy;
+﻿using System.IO;
+using System.Linq;
+using FakeItEasy;
 using FluentAssertions;
 using Microsoft.Extensions.Logging.Abstractions;
-using System.IO;
-using System.Linq;
 using Xunit;
 
 namespace Tack.Core.Tests
