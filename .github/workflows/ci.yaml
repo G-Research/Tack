@@ -10,7 +10,7 @@ env:
 
 jobs:
   check-format:
-    if: github.event_name == 'push' || github.event.pull_request.head.repo.id != github.event.pull_request.base.repo.id
+    # if: github.event_name == 'push' || github.event.pull_request.head.repo.id != github.event.pull_request.base.repo.id
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -25,7 +25,7 @@ jobs:
         run: dotnet tool run dotnet-format  -- --check
   
   TackTests:
-    if: github.event_name == 'push' || github.event.pull_request.head.repo.id != github.event.pull_request.base.repo.id
+    # if: github.event_name == 'push' || github.event.pull_request.head.repo.id != github.event.pull_request.base.repo.id
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
@@ -44,7 +44,7 @@ jobs:
         run: dotnet test --configuration=Release
 
   Tack:
-    if: github.event_name == 'push' || github.event.pull_request.head.repo.id != github.event.pull_request.base.repo.id
+    # if: github.event_name == 'push' || github.event.pull_request.head.repo.id != github.event.pull_request.base.repo.id
     needs: TackTests
     runs-on: ubuntu-latest
     steps:
@@ -67,7 +67,7 @@ jobs:
   # Publish NuGet packages when a tag is pushed.
   # Build needs to succeed first, including having a tag name that matches the version number.
   publish-release:
-    if: ${{ !github.event.repository.fork && startsWith(github.ref, 'refs/tags/v') }}
+    # if: ${{ !github.event.repository.fork && startsWith(github.ref, 'refs/tags/v') }}
     needs: Tack
     runs-on: windows-latest
     steps:
