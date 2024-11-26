@@ -34,3 +34,6 @@ Determines the matching set of test assemblies and writes to output file. This l
 
 Versioned using NerdBank.GitVersioning
 
+## Security
+
+Please see our [security policy](https://github.com/G-Research/Tack/blob/main/SECURITY.md) for details on reporting security vulnerabilities.
